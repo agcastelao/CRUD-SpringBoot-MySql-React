@@ -9,6 +9,7 @@ class ListVeiculosComponent extends Component {
         this.state = {
             veiculos: []
         }
+        this.addVeiculo = this.addVeiculo.bind(this);
 
     }
 
@@ -17,11 +18,18 @@ class ListVeiculosComponent extends Component {
             this.setState({ veiculos: res.data});
         })
     }
-    
+
+    addVeiculo() {
+        this.props.navigate('/add-veiculo')
+    }
+
     render() {
         return (
             <div>
                 <h2 className="text-center">Veiculos List</h2>
+                <div className='row'>
+                    <button className='btn btn-primary' onClick={this.addVeiculo}>Add Veiculo</button>
+                </div>
                 <div className="row">
                     <table className='table table-striped table-bordered'>
 

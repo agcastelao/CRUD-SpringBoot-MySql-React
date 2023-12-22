@@ -4,10 +4,16 @@ const VEICULOS_API_BASE_URL = "http://localhost:8080/api/v1/veiculos";
 
 class VeiculosService {
 
-    getVeiculos() {
-        return axios.get(VEICULOS_API_BASE_URL);
+    async getVeiculos() {
+        try {
+            const response = await axios.get(VEICULOS_API_BASE_URL);
+            return response;
+        } catch (error) {
+            console.log("erro");
+            throw error;
+        }
     }
 
 }
 
-export default new VeiculosService()
+export default new VeiculosService();
